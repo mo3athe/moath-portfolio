@@ -12,7 +12,8 @@ const html = htm.bind(React.createElement);
 const CV_FILE = "assets/docs/Moath-Alnajem-CV.pdf";
 const PORTRAIT = "assets/img/portrait.jpg";
 const CONTACT = { email:"moathe.n@outlook.com", phone:"+966544395500", phoneDisplay:"+966 54 439 5500", linkedin:"https://www.linkedin.com/in/moathalnajem/" };
-const STORES = { tag:"https://tagpluss.com/", qeraaty:"https://qeraaty1.com/" };
+const STORES = { tag:null, qeraaty:"https://qeraaty1.com/" };   // null = show the project without a link
+const TAG_LOGO = "assets/img/tagplus-logo.png";
 const STORE_SHOTS = { tag:null, qeraaty:null };   // add real store screenshots (file names) when available
 const IC_SHOTS = [
   { src:"assets/img/ic-1-welcome.webp", w:569, h:1171 },
@@ -94,7 +95,7 @@ const T = {
         mine:"My contribution focused on UI/UX design and interface development.",
         tags:["Mobile app","UI/UX design","Interface development"], note:"Real app screens. Names and figures inside are illustrative prototype data.",
         shots:[["Welcome screen","The entry point of the app, with a single Get Started action."],["User role selection","People choose whether to join as an intern or as a company."],["Intern dashboard","Interns see upcoming interviews and filter applications by status."],["Internship details","A full posting with requirements, responsibilities, and the deadline."],["Company dashboard","Companies track postings, applications, interviews, and hires."],["Profile editing","Interns manage their skills, certifications, and languages."],["Settings","Account, notifications, appearance, and support options."]] },
-      tag:{ kicker:"Salla e-commerce store", name:"Tag+", desc:"Online store for the Tag+ brand, built on the Salla platform. My work covered the store itself, not the platform:",
+      tag:{ kicker:"Salla e-commerce store", name:"Tag Plus", logoAlt:"Tag Plus logo", desc:"An online store for digital social media services, built on the Salla platform. My work covered the store itself, not the platform:",
         did:["Store setup","Store configuration","Product categories","Visual content","Blog content"], screen:"My contributions" },
       qer:{ kicker:"E-commerce store", name:"Qeraaty", wordmark:"قراءتي", desc:"A live online store for Qeraaty, a real-world e-commerce project I worked on.", screen:"Live store" },
       java:{ kicker:"Academic programming project", name:"Java Operating Systems Simulator", desc:"A Java-based project exploring operating system concepts such as process scheduling, resource management, and memory management.",
@@ -163,7 +164,7 @@ const T = {
         mine:"تركّزت مساهمتي على تصميم UI/UX وتطوير الواجهات.",
         tags:["تطبيق جوال","تصميم UI/UX","تطوير الواجهات"], note:"شاشات حقيقية من التطبيق، والأسماء والأرقام فيها بيانات توضيحية للنموذج الأولي.",
         shots:[["شاشة الترحيب","نقطة البداية في التطبيق مع زر واحد للبدء."],["اختيار نوع المستخدم","يختار المستخدم الانضمام كمتدرب أو كشركة."],["لوحة المتدرب","يتابع المتدرب المقابلات القادمة ويصفّي طلباته حسب الحالة."],["تفاصيل فرصة التدريب","عرض كامل للفرصة يشمل المتطلبات والمسؤوليات وموعد التقديم."],["لوحة الشركة","تتابع الشركة الفرص والطلبات والمقابلات والتعيينات."],["تعديل الملف الشخصي","يدير المتدرب مهاراته وشهاداته ولغاته."],["الإعدادات","خيارات الحساب والإشعارات والمظهر والدعم."]] },
-      tag:{ kicker:"متجر إلكتروني على منصة سلة", name:"Tag+", desc:"متجر إلكتروني لعلامة Tag+ مبني على منصة سلة. شمل عملي المتجر نفسه، وليس المنصة:",
+      tag:{ kicker:"متجر إلكتروني على منصة سلة", name:"تاق بلس", logoAlt:"شعار تاق بلس", desc:"متجر إلكتروني لخدمات رقمية لحسابات التواصل الاجتماعي، مبني على منصة سلة. شمل عملي المتجر نفسه، وليس المنصة:",
         did:["إعداد المتجر","تهيئة المتجر","تصنيفات المنتجات","المحتوى المرئي","محتوى المدونة"], screen:"مساهماتي" },
       qer:{ kicker:"متجر إلكتروني", name:"قراءتي", wordmark:"قراءتي", desc:"متجر إلكتروني قائم لقراءتي، وهو مشروع تجارة إلكترونية فعلي شاركت فيه.", screen:"متجر قائم" },
       java:{ kicker:"مشروع برمجي أكاديمي", name:"محاكي أنظمة التشغيل بلغة Java", desc:"مشروع بلغة Java يستكشف مفاهيم أنظمة التشغيل مثل جدولة العمليات وإدارة الموارد وإدارة الذاكرة.",
@@ -753,12 +754,12 @@ function InternConnect({ t, rtl }){
 
 /* ---------- browser mockup (typographic: no fabricated store UI) ---------- */
 function Browser({ url, shot, children, tone }){
-  const domain = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  const domain = url ? url.replace(/^https?:\/\//, "").replace(/\/$/, "") : "";
   return html`
     <div className=${"browser " + tone}>
       <div className="b-bar" aria-hidden="true">
         <span className="b-dots"><i></i><i></i><i></i></span>
-        <span className="b-url"><${Icon} name="lock" size=${11} />${domain}</span>
+        ${domain && html`<span className="b-url"><${Icon} name="lock" size=${11} />${domain}</span>`}
       </div>
       <div className="b-screen">${shot ? html`<img src=${shot} alt="" loading="lazy" />` : children}</div>
     </div>`;
@@ -775,9 +776,9 @@ function StoreCase({ d, url, shot, visit, tone, flip, wordmarkAr, children }){
         <h3 className=${"case-title" + (wordmarkAr ? " arw" : "")}>${d.name}</h3>
         <p className="case-desc">${d.desc}</p>
         ${d.did && html`<ul className="did">${d.did.map(x => html`<li key=${x}><${Icon} name="check" size=${15} />${x}</li>`)}</ul>`}
-        <a className="btn btn-ghost btn-sm" href=${url} target="_blank" rel="noopener noreferrer">
+        ${url && html`<a className="btn btn-ghost btn-sm" href=${url} target="_blank" rel="noopener noreferrer">
           <${Icon} name="external-link" size=${15} />${visit}<span className="ltr dim">${url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
-        </a>
+        </a>`}
       </${Rv}>
     </article>`;
 }
@@ -836,10 +837,8 @@ function Work({ t, rtl, lang }){
         </${Rv}>
         <${InternConnect} t=${t} rtl=${rtl} />
         <${StoreCase} d=${w.tag} url=${STORES.tag} shot=${STORE_SHOTS.tag} visit=${t.ui.visit} tone="v">
-          <div className="scr tagscr">
-            <span className="scr-mark">Tag+</span>
-            <span className="scr-k">${w.tag.screen}</span>
-            <ul>${w.tag.did.map((x, i) => html`<li key=${x} style=${{ "--i": i }}><i></i>${x}</li>`)}</ul>
+          <div className="scr logoscr">
+            <img src=${TAG_LOGO} alt=${w.tag.logoAlt} width="485" height="205" loading="lazy" decoding="async" />
           </div>
         </${StoreCase}>
         <${StoreCase} d=${w.qer} url=${STORES.qeraaty} shot=${STORE_SHOTS.qeraaty} visit=${t.ui.visit} tone="c" flip=${true} wordmarkAr=${lang === "ar"}>

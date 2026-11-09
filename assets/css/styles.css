@@ -277,6 +277,8 @@ q{quotes:"\201C" "\201D"}
 .b-screen img{width:100%;height:100%;object-fit:cover;object-position:top}
 .scr{position:absolute;inset:0;display:grid;align-content:center;justify-items:start;gap:12px;padding:clamp(20px,5%,44px)}
 .tagscr{background:radial-gradient(80% 90% at 85% 10%,rgba(139,92,246,.35),transparent 60%),linear-gradient(160deg,#0E1533,#070B1C)}
+.logoscr{justify-items:center;align-content:center;background:radial-gradient(80% 70% at 50% 30%,#FFFFFF,#EEF0FB)}
+.logoscr img{width:min(72%,360px);height:auto}
 .qscr{justify-items:center;text-align:center;background:radial-gradient(70% 80% at 50% 0%,rgba(34,211,238,.22),transparent 60%),linear-gradient(170deg,#0B1530,#060A1A)}
 .scr-mark{font-family:'Archivo',sans-serif;font-weight:900;font-stretch:125%;font-size:clamp(2.6rem,7vw,5.2rem);line-height:.9;background:linear-gradient(180deg,#fff,#A79BEA);-webkit-background-clip:text;background-clip:text;color:transparent}
 .scr-mark.ar-w{font-family:'Alexandria',sans-serif;font-weight:800;font-size:clamp(3rem,8vw,5.6rem);line-height:1.25;background:linear-gradient(180deg,#fff,#8FDDEB);-webkit-background-clip:text;background-clip:text}
