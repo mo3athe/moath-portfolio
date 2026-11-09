@@ -594,7 +594,7 @@ function Journey({ t }){
     const r = list.getBoundingClientRect();
     const p = Math.min(1, Math.max(0, (vh * .45 - r.top) / r.height));
     if (fillRef.current) fillRef.current.style.transform = "scaleY(" + (REDUCED ? 1 : p) + ")";
-    const items = list.querySelectorAll(".role");
+    const items = list.querySelectorAll(".jrole");
     let best = 0;
     items.forEach((el, i) => { if (el.getBoundingClientRect().top < vh * .5) best = i; });
     setAct(best);
@@ -622,7 +622,7 @@ function Journey({ t }){
           <ol className="j-list" ref=${listRef}>
             <span className="j-rail" aria-hidden="true"><span ref=${fillRef}></span></span>
             ${j.items.map((it, i) => html`
-              <li key=${it.key} className=${"role" + (i === act ? " on" : "")}>
+              <li key=${it.key} className=${"jrole" + (i === act ? " on" : "")}>
                 <span className="j-dot" aria-hidden="true"></span>
                 <p className="j-when">${it.when}${it.now && html` <span className="now">${j.current}</span>`}</p>
                 <h3 className="j-role">${it.role}</h3>
