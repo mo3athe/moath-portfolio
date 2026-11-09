@@ -366,6 +366,16 @@ q{quotes:"\201C" "\201D"}
 .certs li:hover{padding-inline-start:12px}
 .c-n{font-family:var(--f-disp);font-weight:600;font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.3}
 .c-by{font-size:14px;color:var(--cyan)}
+.tr-h{display:flex;align-items:center;gap:14px;margin:clamp(28px,3.5vw,40px) 0 4px;font-size:15px;font-weight:600;color:var(--muted)}
+.tr-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.certs .train{border-top:0}
+.t-meta{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.t-st{display:inline-flex;align-items:center;gap:7px;padding:3px 11px;border-radius:999px;font-size:12.5px;white-space:nowrap;border:1px solid var(--line2);color:var(--fg)}
+.t-st::before{content:"";width:7px;height:7px;border-radius:50%}
+.t-st.done{border-color:rgba(34,211,238,.4)}.t-st.done::before{background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.t-st.active{border-color:rgba(139,92,246,.5)}.t-st.active::before{background:var(--violet);box-shadow:0 0 8px var(--violet)}
+.t-st.soon{border-style:dashed;border-color:rgba(187,166,255,.45);color:var(--vink)}.t-st.soon::before{border:1.5px dashed var(--vink)}
+.tr-note{margin-top:14px;max-width:60ch}
 
 /* ---------- contact ---------- */
 .c-grid{display:grid;gap:clamp(28px,4vw,60px);align-items:end}

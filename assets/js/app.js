@@ -106,7 +106,7 @@ const T = {
       proven:"Proven", learning:"Learning",
       groups:[
         { icon:"server", name:"IT support and systems", items:[["Tier 1 & 2 technical support",1],["Hardware & software troubleshooting",1],["POS systems",1],["Microsoft 365 administration",1],["Windows environments",1],["IT asset inventory",1]] },
-        { icon:"network", name:"Networking fundamentals", items:[["Network & system troubleshooting",1],["Network connectivity support",1],["Advanced networking",0]] },
+        { icon:"network", name:"Networking fundamentals", items:[["Network & system troubleshooting",1],["Network connectivity support",1],["CCNA 200-301 (in training)",0]] },
         { icon:"shield-check", name:"Cybersecurity learning path", items:[["User provisioning",1],["Cybersecurity fundamentals",0]] },
         { icon:"code", name:"Development and databases", items:[["HTML",1],["CSS",1],["JavaScript",1],["Python",1],["Java",1],["SQL",1],["Advanced Excel",1],["Power BI & data analysis",1]] },
         { icon:"pen-tool", name:"UI/UX and design tools", items:[["Figma",1],["UI/UX design",1],["Usability & accessibility",1],["Interface development",1]] },
@@ -115,6 +115,9 @@ const T = {
     cred:{
       title:"Certifications", degreeLabel:"Education", degree:"Bachelor's in Information Technology", uni:"Prince Mohammad Bin Fahd University", grad:"2025",
       certs:[["ITIL 5 Foundation","PeopleCert"],["UI/UX and AI Bootcamp","Tuwaiq Academy"],["Advanced Excel Certificate","MIRAN"],["Power BI / Data Analysis Certificate","MIRAN"],["Tuwaiq Programming Challenge (Python)","Tuwaiq Academy"]],
+      trainingTitle:"Current training", trainingNote:"Training courses. The official CompTIA and Cisco certifications require passing their exams.",
+      status:{ done:"Course completed, Oct 2026", soon:"Starts 27 Nov 2026", active:"In progress since Nov 2026" },
+      training:[{ key:"netplus", name:"CompTIA Network+", by:"Abad Network for Training" },{ key:"ccna", name:"CCNA 200-301", by:"Abad Network for Training" }],
     },
     contact:{
       title:"Let's talk.", lead:"For IT support, help desk, or technical operations roles, reach me directly.",
@@ -172,7 +175,7 @@ const T = {
       proven:"مثبتة", learning:"أتعلّمها",
       groups:[
         { icon:"server", name:"الدعم التقني والأنظمة", items:[["الدعم الفني من المستويين الأول والثاني",1],["استكشاف أعطال الأجهزة والبرمجيات",1],["أنظمة نقاط البيع",1],["إدارة Microsoft 365",1],["بيئات Windows",1],["جرد الأصول التقنية",1]] },
-        { icon:"network", name:"أساسيات الشبكات", items:[["استكشاف أعطال الشبكات والأنظمة",1],["دعم الاتصال بالشبكة",1],["الشبكات المتقدمة",0]] },
+        { icon:"network", name:"أساسيات الشبكات", items:[["استكشاف أعطال الشبكات والأنظمة",1],["دعم الاتصال بالشبكة",1],["CCNA 200-301 (قيد التدريب)",0]] },
         { icon:"shield-check", name:"مسار تعلّم الأمن السيبراني", items:[["تهيئة حسابات المستخدمين",1],["أساسيات الأمن السيبراني",0]] },
         { icon:"code", name:"البرمجة وقواعد البيانات", items:[["HTML",1],["CSS",1],["JavaScript",1],["Python",1],["Java",1],["SQL",1],["Excel المتقدم",1],["Power BI وتحليل البيانات",1]] },
         { icon:"pen-tool", name:"تصميم UI/UX وأدواته", items:[["Figma",1],["تصميم UI/UX",1],["قابلية الاستخدام وإمكانية الوصول",1],["تطوير الواجهات",1]] },
@@ -181,6 +184,9 @@ const T = {
     cred:{
       title:"الشهادات", degreeLabel:"التعليم", degree:"بكالوريوس تقنية المعلومات", uni:"جامعة الأمير محمد بن فهد", grad:"2025",
       certs:[["شهادة ITIL 5 Foundation","PeopleCert"],["معسكر UI/UX والذكاء الاصطناعي","أكاديمية طويق"],["شهادة Excel المتقدم","MIRAN"],["شهادة Power BI وتحليل البيانات","MIRAN"],["تحدي طويق البرمجي (Python)","أكاديمية طويق"]],
+      trainingTitle:"تدريب حالي", trainingNote:"دورات تدريبية، والشهادات الرسمية من CompTIA وCisco تتطلب اجتياز اختباراتها.",
+      status:{ done:"اكتملت الدورة، أكتوبر 2026", soon:"تبدأ 27 نوفمبر 2026", active:"جارية منذ نوفمبر 2026" },
+      training:[{ key:"netplus", name:"دورة CompTIA Network+", by:"معهد شبكة أباد للتدريب" },{ key:"ccna", name:"دورة CCNA 200-301", by:"معهد شبكة أباد للتدريب" }],
     },
     contact:{
       title:"لنتحدث.", lead:"للتواصل بخصوص وظائف الدعم التقني أو مكتب المساعدة أو العمليات التقنية.",
@@ -882,6 +888,15 @@ function Skills({ t }){
     </section>`;
 }
 
+/* Training status follows the calendar: CCNA switches from "starts" to "in progress" on its start date. */
+const TRAINING = { netplus:{ completed:"2026-10-28" }, ccna:{ starts:"2026-11-27" } };
+function trainingStatus(key){
+  const tr = TRAINING[key] || {};
+  if (tr.completed) return "done";
+  if (tr.starts && Date.now() < new Date(tr.starts + "T00:00:00+03:00").getTime()) return "soon";
+  return "active";
+}
+
 function Credentials({ t }){
   const c = t.cred;
   return html`
@@ -901,6 +916,18 @@ function Credentials({ t }){
                 <span className="c-n">${n}</span><span className="c-by">${by}</span>
               </${Rv}>`)}
           </ul>
+          <${Rv} as="h3" className="tr-h">${c.trainingTitle}</${Rv}>
+          <ul className="train">
+            ${c.training.map((x, i) => {
+              const st = trainingStatus(x.key);
+              return html`
+                <${Rv} as="li" key=${x.key} delay=${i * .04}>
+                  <span className="c-n">${x.name}</span>
+                  <span className="t-meta"><span className="c-by">${x.by}</span><span className=${"t-st " + st}>${c.status[st]}</span></span>
+                </${Rv}>`;
+            })}
+          </ul>
+          <p className="fine tr-note">${c.trainingNote}</p>
         </div>
       </div>
     </section>`;
