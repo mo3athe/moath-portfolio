@@ -770,7 +770,7 @@ function Browser({ url, shot, children, tone }){
 
 function StoreCase({ d, url, shot, visit, tone, flip, wordmarkAr, children }){
   return html`
-    <article className=${"case store" + (flip ? " flip" : "")}>
+    <article className=${"case store" + (flip ? " reverse" : "")}>
       <${Rv} className="store-vis">
         <${Browser} url=${url} shot=${shot} tone=${tone}>${children}</${Browser}>
       </${Rv}>
