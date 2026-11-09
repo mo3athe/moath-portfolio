@@ -14,6 +14,7 @@ const PORTRAIT = "assets/img/portrait.jpg";
 const CONTACT = { email:"moathe.n@outlook.com", phone:"+966544395500", phoneDisplay:"+966 54 439 5500", linkedin:"https://www.linkedin.com/in/moathalnajem/" };
 const STORES = { tag:null, qeraaty:"https://qeraaty1.com/" };   // null = show the project without a link
 const TAG_LOGO = "assets/img/tagplus-logo.png";
+const QERAATY_LOGO = "assets/img/qeraaty-logo.png";
 const STORE_SHOTS = { tag:null, qeraaty:null };   // add real store screenshots (file names) when available
 const IC_SHOTS = [
   { src:"assets/img/ic-1-welcome.webp", w:569, h:1171 },
@@ -97,7 +98,8 @@ const T = {
         shots:[["Welcome screen","The entry point of the app, with a single Get Started action."],["User role selection","People choose whether to join as an intern or as a company."],["Intern dashboard","Interns see upcoming interviews and filter applications by status."],["Internship details","A full posting with requirements, responsibilities, and the deadline."],["Company dashboard","Companies track postings, applications, interviews, and hires."],["Profile editing","Interns manage their skills, certifications, and languages."],["Settings","Account, notifications, appearance, and support options."]] },
       tag:{ kicker:"Salla e-commerce store", name:"Tag Plus", logoAlt:"Tag Plus logo", desc:"An online store for digital social media services, built on the Salla platform. My work covered the store itself, not the platform:",
         did:["Store setup","Store configuration","Product categories","Visual content","Blog content"], screen:"My contributions" },
-      qer:{ kicker:"E-commerce store", name:"Qeraaty", wordmark:"قراءتي", desc:"A live online store for Qeraaty, a real-world e-commerce project I worked on.", screen:"Live store" },
+      qer:{ kicker:"Salla e-commerce store", name:"Qeraaty Library", logoAlt:"Qeraaty Library logo", desc:"An online store for Qeraaty Library, a licensed cultural library, built on the Salla platform. It offers books, children's programs, and seasonal camps. My work on the store:",
+        did:["Store setup and configuration on Salla","Organizing categories (programs, services, camps)","Adding and updating products and programs"] },
       java:{ kicker:"Academic programming project", name:"Java Operating Systems Simulator", desc:"A Java-based project exploring operating system concepts such as process scheduling, resource management, and memory management.",
         tags:["Java"], sched:"Process scheduling", mem:"Memory management", res:"Resource management", time:"time", free:"free", held:"held", req:"requested",
         note:"Concept visualization of the topics the project covers. It is not output from the simulator." },
@@ -152,7 +154,7 @@ const T = {
           bullets:["تقديم دعم المستوى الأول لأجهزة الحاسب والطباعة في المؤسسة لضمان استمرارية سير العمل.","حل مشكلات الأجهزة والبرمجيات للموظفين للحفاظ على إنتاجيتهم.","تنفيذ المهام التشغيلية الدورية، ومنها تهيئة حسابات المستخدمين وإدارة جرد الأصول التقنية."] },
         { key:"se", role:"متدرب تقنية معلومات", org:"الشركة السعودية للكهرباء (SE)", place:"الدمام", when:"يونيو 2024 – أغسطس 2024", big:"2024",
           bullets:["تشخيص أعطال أجهزة الحاسب والطابعات وحلها لضمان استمرار عمل المستخدمين.","تقديم الدعم المباشر للمستخدمين في الأجهزة والبرمجيات.","المساهمة في تجهيز 100 محطة عمل جديدة وفق المعايير التقنية."] },
-        { key:"qeraaty", role:"أخصائي تقنية معلومات", org:"مكتبة قراءتي", place:"الخبر", when:"أبريل 2022 – ديسمبر 2023", big:"2022–23",
+        { key:"qeraaty", role:"أخصائي تقنية معلومات", org:"مكتبة قراءاتي", place:"الخبر", when:"أبريل 2022 – ديسمبر 2023", big:"2022–23",
           bullets:["تحسين سير عمل الدعم التقني وترتيب أولويات المهام اليومية، مما قلّل وقت الحل والتأثير على العمليات.","إدارة بيئة Microsoft 365 ودعمها لتعزيز التعاون بين الفريق واستقرار الخدمات السحابية.","الحفاظ على جاهزية البنية التقنية والأجهزة الملحقة عبر المراقبة والصيانة الاستباقية."] },
       ],
       vol:{ label:"العمل التطوعي", role:"متطوع", org:"مركز الملك عبدالعزيز الثقافي العالمي (إثراء)", place:"الظهران", when:"2018 – حتى الآن" },
@@ -166,7 +168,8 @@ const T = {
         shots:[["شاشة الترحيب","نقطة البداية في التطبيق مع زر واحد للبدء."],["اختيار نوع المستخدم","يختار المستخدم الانضمام كمتدرب أو كشركة."],["لوحة المتدرب","يتابع المتدرب المقابلات القادمة ويصفّي طلباته حسب الحالة."],["تفاصيل فرصة التدريب","عرض كامل للفرصة يشمل المتطلبات والمسؤوليات وموعد التقديم."],["لوحة الشركة","تتابع الشركة الفرص والطلبات والمقابلات والتعيينات."],["تعديل الملف الشخصي","يدير المتدرب مهاراته وشهاداته ولغاته."],["الإعدادات","خيارات الحساب والإشعارات والمظهر والدعم."]] },
       tag:{ kicker:"متجر إلكتروني على منصة سلة", name:"تاق بلس", logoAlt:"شعار تاق بلس", desc:"متجر إلكتروني لخدمات رقمية لحسابات التواصل الاجتماعي، مبني على منصة سلة. شمل عملي المتجر نفسه، وليس المنصة:",
         did:["إعداد المتجر","تهيئة المتجر","تصنيفات المنتجات","المحتوى المرئي","محتوى المدونة"], screen:"مساهماتي" },
-      qer:{ kicker:"متجر إلكتروني", name:"قراءتي", wordmark:"قراءتي", desc:"متجر إلكتروني قائم لقراءتي، وهو مشروع تجارة إلكترونية فعلي شاركت فيه.", screen:"متجر قائم" },
+      qer:{ kicker:"متجر إلكتروني على منصة سلة", name:"مكتبة قراءاتي", logoAlt:"شعار مكتبة قراءاتي", desc:"متجر إلكتروني لمكتبة قراءاتي، مكتبة ثقافية مرخصة، مبني على منصة سلة، يقدم الكتب وبرامج الأطفال والمخيمات الموسمية. شمل عملي في المتجر:",
+        did:["إعداد المتجر وتهيئته على سلة","تنظيم التصنيفات (البرامج، الخدمات، المخيمات)","إضافة المنتجات والبرامج وتحديثها"] },
       java:{ kicker:"مشروع برمجي أكاديمي", name:"محاكي أنظمة التشغيل بلغة Java", desc:"مشروع بلغة Java يستكشف مفاهيم أنظمة التشغيل مثل جدولة العمليات وإدارة الموارد وإدارة الذاكرة.",
         tags:["Java"], sched:"جدولة العمليات", mem:"إدارة الذاكرة", res:"إدارة الموارد", time:"الزمن", free:"متاح", held:"محجوز", req:"مطلوب",
         note:"تصوير توضيحي للمفاهيم التي يغطيها المشروع، وليس مخرجات من المحاكي نفسه." },
@@ -841,10 +844,9 @@ function Work({ t, rtl, lang }){
             <img src=${TAG_LOGO} alt=${w.tag.logoAlt} width="485" height="205" loading="lazy" decoding="async" />
           </div>
         </${StoreCase}>
-        <${StoreCase} d=${w.qer} url=${STORES.qeraaty} shot=${STORE_SHOTS.qeraaty} visit=${t.ui.visit} tone="c" flip=${true} wordmarkAr=${lang === "ar"}>
-          <div className="scr qscr">
-            <span className="scr-mark ar-w">${w.qer.wordmark}</span>
-            <span className="scr-k">${w.qer.screen}<i className="live"></i></span>
+        <${StoreCase} d=${w.qer} url=${STORES.qeraaty} shot=${STORE_SHOTS.qeraaty} visit=${t.ui.visit} tone="c" flip=${true}>
+          <div className="scr logoscr">
+            <img src=${QERAATY_LOGO} alt=${w.qer.logoAlt} width="536" height="422" loading="lazy" decoding="async" />
           </div>
         </${StoreCase}>
         <${JavaCase} d=${w.java} />
