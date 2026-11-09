@@ -1,6 +1,6 @@
 # Moath Alnajem — Portfolio
 
-Personal portfolio of **Moath Alnajem (معاذ الناجم)**, IT Support Specialist in Al Khobar, Saudi Arabia.
+Personal portfolio of **Moath Alnajem (معاذ الناجم)**, IT Support Specialist in Dhahran, Saudi Arabia.
 Bilingual (English / Arabic with full RTL), with a Three.js network scene, scroll-driven camera,
 an Intern Connect screen gallery, career journey, skills, certifications, and a downloadable CV.
 

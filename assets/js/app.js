@@ -64,15 +64,15 @@ const T = {
     nav:{ about:"About", journey:"Journey", work:"Work", skills:"Skills", credentials:"Certifications", contact:"Contact" },
     ui:{ menu:"Open menu", close:"Close menu", lang:"Language", copy:"Copy", copied:"Copied", cvSaved:"CV saved", cvOpen:"Download isn't available here. Tap again to open the PDF.", prev:"Previous screen", next:"Next screen", enlarge:"Enlarge", closeLb:"Close", of:"of", scroll:"Scroll", visit:"Visit website", openProfile:"Open profile" },
     hero:{
-      loc:"Al Khobar, Saudi Arabia", title:"IT Support Specialist",
+      loc:"Dhahran, Saudi Arabia", title:"IT Support Specialist",
       quote:"Building reliable technology today. Exploring the networks and security of tomorrow.",
       work:"Explore my work", cv:"Download CV", contact:"Contact me",
-      photoAlt:"Moath Alnajem, professional portrait", caption:"Moath Alnajem, Al Khobar",
+      photoAlt:"Moath Alnajem, professional portrait", caption:"Moath Alnajem, Dhahran",
     },
     about:{
       title:"About",
       text:"I keep technology working for the people who depend on it. I diagnose faults, restore service, and document every fix. Since 2022 I've supported POS systems, Microsoft 365, workstations, printers, and networks. Next, I'm building toward the networks and security that will run tomorrow.",
-      facts:[["Degree","Bachelor's in Information Technology, PMU, 2025"],["Based in","Al Khobar, Saudi Arabia"],["Languages","Arabic, English"],["In IT since","April 2022"]],
+      facts:[["Degree","Bachelor's in Information Technology, PMU, 2025"],["Based in","Dhahran, Saudi Arabia"],["Languages","Arabic, English"],["In IT since","April 2022"]],
     },
     journey:{
       title:"Career journey", lead:"Four IT roles since 2022, from frontline support to Microsoft 365 administration.",
@@ -124,9 +124,9 @@ const T = {
     },
     contact:{
       title:"Let's talk.", lead:"For IT support, help desk, or technical operations roles, reach me directly.",
-      email:"Email", phone:"Phone", linkedin:"LinkedIn", location:"Location", loc:"Al Khobar, Saudi Arabia", cvNote:"PDF, one page",
+      email:"Email", phone:"Phone", linkedin:"LinkedIn", location:"Location", loc:"Dhahran, Saudi Arabia", cvNote:"PDF, one page",
     },
-    footer:"© 2026 Moath Alnajem", footer2:"IT Support Specialist, Al Khobar",
+    footer:"© 2026 Moath Alnajem", footer2:"IT Support Specialist, Dhahran",
   },
 
   ar: {
@@ -134,15 +134,15 @@ const T = {
     nav:{ about:"نبذة", journey:"المسيرة", work:"الأعمال", skills:"المهارات", credentials:"الشهادات", contact:"تواصل" },
     ui:{ menu:"فتح القائمة", close:"إغلاق القائمة", lang:"اللغة", copy:"نسخ", copied:"تم النسخ", cvSaved:"تم حفظ السيرة الذاتية", cvOpen:"التحميل غير متاح هنا. اضغط مرة أخرى لفتح ملف PDF.", prev:"الشاشة السابقة", next:"الشاشة التالية", enlarge:"تكبير", closeLb:"إغلاق", of:"من", scroll:"مرّر", visit:"زيارة الموقع", openProfile:"فتح الملف الشخصي" },
     hero:{
-      loc:"الخبر، المملكة العربية السعودية", title:"أخصائي دعم تقني",
+      loc:"الظهران، المملكة العربية السعودية", title:"أخصائي دعم تقني",
       quote:"أبني تقنية موثوقة اليوم، وأستكشف شبكات الغد وأمنه.",
       work:"استكشف أعمالي", cv:"تحميل السيرة الذاتية", contact:"تواصل معي",
-      photoAlt:"معاذ الناجم، صورة مهنية", caption:"معاذ الناجم، الخبر",
+      photoAlt:"معاذ الناجم، صورة مهنية", caption:"معاذ الناجم، الظهران",
     },
     about:{
       title:"نبذة",
       text:"أحرص على أن تعمل التقنية بكفاءة لمن يعتمدون عليها. أشخّص الأعطال، وأعيد الخدمة، وأوثّق كل حل. منذ 2022 دعمت أنظمة نقاط البيع وMicrosoft 365 ومحطات العمل والطابعات والشبكات. وخطوتي التالية هي التعمق في الشبكات والأمن اللذين سيقودان الغد.",
-      facts:[["المؤهل","بكالوريوس تقنية المعلومات، جامعة الأمير محمد بن فهد، 2025"],["المقر","الخبر، المملكة العربية السعودية"],["اللغات","العربية، الإنجليزية"],["في تقنية المعلومات منذ","أبريل 2022"]],
+      facts:[["المؤهل","بكالوريوس تقنية المعلومات، جامعة الأمير محمد بن فهد، 2025"],["المقر","الظهران، المملكة العربية السعودية"],["اللغات","العربية، الإنجليزية"],["في تقنية المعلومات منذ","أبريل 2022"]],
     },
     journey:{
       title:"المسيرة المهنية", lead:"أربع وظائف في تقنية المعلومات منذ 2022، من الدعم المباشر إلى إدارة Microsoft 365.",
@@ -194,9 +194,9 @@ const T = {
     },
     contact:{
       title:"لنتحدث.", lead:"للتواصل بخصوص وظائف الدعم التقني أو مكتب المساعدة أو العمليات التقنية.",
-      email:"البريد الإلكتروني", phone:"الجوال", linkedin:"لينكدإن", location:"الموقع", loc:"الخبر، المملكة العربية السعودية", cvNote:"ملف PDF، صفحة واحدة",
+      email:"البريد الإلكتروني", phone:"الجوال", linkedin:"لينكدإن", location:"الموقع", loc:"الظهران، المملكة العربية السعودية", cvNote:"ملف PDF، صفحة واحدة",
     },
-    footer:"© 2026 معاذ الناجم", footer2:"أخصائي دعم تقني، الخبر",
+    footer:"© 2026 معاذ الناجم", footer2:"أخصائي دعم تقني، الظهران",
   },
 };
 const NAV = ["about","journey","work","skills","credentials","contact"];
