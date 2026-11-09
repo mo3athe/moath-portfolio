@@ -48,6 +48,9 @@ Every later push to the `main` branch redeploys the site automatically.
 
 ## Editing content
 
+After changing `styles.css` or `app.js`, raise the `?v=` number on their links in `index.html` (for example `?v=3`) so browsers load the new version.
+
+
 - **Text** (both languages): the `T` object near the top of `assets/js/app.js`
   (`T.en` and `T.ar`). Keep the same keys in both languages.
 - **Links, CV, portrait, screenshots**: the `REAL ASSETS & LINKS` block at the top of `app.js`.
